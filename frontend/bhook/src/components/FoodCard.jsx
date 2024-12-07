@@ -4,14 +4,14 @@ import { toast, ToastContainer } from "react-toastify";
 const FoodCard = ({ food, isAdmin, setFoodItems }) => {
   const navigate = useNavigate();
   const { name, price, description, availableQuantity, image, isVeg } = food;
-  
+  const backendUrl = "https://bhook-backend.vercel.app/";
   const handleEdit = (id) => {
     navigate(`/edit-food/${id}`);
     console.log("edit food item", id);
   };
 
   const handleDelete = async (id) => {
-    const response = await fetch(`http://localhost:3000/api/v1/food/${id}`, {
+    const response = await fetch(`${backendUrl}api/v1/food/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,

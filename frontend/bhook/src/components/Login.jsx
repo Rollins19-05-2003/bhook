@@ -2,6 +2,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
+const backendUrl = "https://bhook-backend.vercel.app/";
+
 const Login = ({setIsAuthenticated}) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -20,7 +22,7 @@ const Login = ({setIsAuthenticated}) => {
     e.preventDefault();
     
     try {
-      const response = await fetch('http://localhost:3000/api/v1/user/login', {
+      const response = await fetch(`${backendUrl}api/v1/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

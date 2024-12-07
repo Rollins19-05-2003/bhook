@@ -7,6 +7,7 @@ const Dashboard = () => {
   const [user, setUser] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [foodItems, setFoodItems] = useState([]);
+  const backendUrl = "https://bhook-backend.vercel.app/";
   const navigate = useNavigate();
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('user'));
@@ -29,7 +30,7 @@ const Dashboard = () => {
   // ];
 
   const fetchFoodItems = async () => {
-    const response = await fetch('http://localhost:3000/api/v1/food', {
+    const response = await fetch(`${backendUrl}api/v1/food`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`

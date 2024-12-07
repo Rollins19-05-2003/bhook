@@ -9,6 +9,7 @@ import { BiDetail } from 'react-icons/bi';
 const AddFoodForm = () => {
     const {id} = useParams();
     const navigate = useNavigate();
+    const backendUrl = "https://bhook-backend.vercel.app/";
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -27,7 +28,7 @@ const AddFoodForm = () => {
     const fetchFoodItem = async () => {
       if (id) {
         try {
-          const response = await fetch(`http://localhost:3000/api/v1/food/${id}`, {
+          const response = await fetch(`${backendUrl}api/v1/food/${id}`, {
             headers: {
               'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
@@ -76,8 +77,8 @@ const AddFoodForm = () => {
     
     try {
       const url = id 
-        ? `http://localhost:3000/api/v1/food/${id}` 
-        : 'http://localhost:3000/api/v1/food';
+        ? `${backendUrl}api/v1/food/${id}` 
+        : `${backendUrl}api/v1/food`;
       
       const method = id ? 'PATCH' : 'POST';
 
