@@ -97,9 +97,12 @@ const AddFoodForm = () => {
           navigate('/dashboard');
         }, 1500);
       } else {
-        toast.error(id ? 'Failed to update food item' : 'Failed to add food item');
+        const errorData = await response.json();
+        console.error('Error response:', errorData);
+        toast.error(errorData.message || 'Failed to update food item');
       }
     } catch (error) {
+      console.error('Request error:', error);
       toast.error('Error processing request');
     }
   };

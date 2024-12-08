@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import scooty from "./../../public/scooty&logo.svg";
-import home from "./../../public/home.svg"
+import scooty from "/scooty&logo.svg";
+import home from "/home.svg"
 const Home = () => {
     return (
       <div className="flex flex-col justify-center min-h-screen p-8 bg-white relative overflow-hidden">
