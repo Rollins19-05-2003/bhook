@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaUserCircle, FaShoppingCart } from 'react-icons/fa';
-import bhookLogo from '../assets/logo.svg';
+import bhookLogo from './../../public/logo.svg';
 import { ToastContainer, toast } from 'react-toastify';
 const Navbar = ({ setIsAuthenticated }) => {
   const handleProfileClick = () => {

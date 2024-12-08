@@ -49,7 +49,7 @@ const FoodCard = ({ food, isAdmin, setFoodItems }) => {
             {isVeg ? 'Veg' : 'Non-Veg'}
           </span>
         <div className="mt-4 flex justify-between items-center">
-          <span className="text-lg font-bold">Rs {price}</span>
+          <span className="text-lg font-bold">₹ {price}</span>
 
           {isAdmin ? (
             <div className="space-x-2">
