@@ -15,8 +15,16 @@ connectDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors());
-app.options('*', cors())
+
+// Add this before your routes
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Handle OPTIONS preflight
+app.options('*', cors());
 
 // ~~~~~~ ROUTES ~~~~~~
 app.get("/", (req, res) => {
