@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const FoodCard = ({ food, isAdmin, setFoodItems }) => {
   const navigate = useNavigate();
@@ -26,6 +28,13 @@ const FoodCard = ({ food, isAdmin, setFoodItems }) => {
       toast.error("Failed to delete food item");
     }
   };
+  const dispatch = useDispatch();
+  const handleClick = (item) =>{
+      // dispatch an action
+      console.log("ITEM CLICKED", item);
+      dispatch(addItem(item));
+      toast.success(`${item.name} added to cart!`);
+  }
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -67,7 +76,7 @@ const FoodCard = ({ food, isAdmin, setFoodItems }) => {
               </button>
             </div>
           ) : (
-            <button className="bg-[#3f3d56] text-white px-4 py-2 rounded hover:bg-[#2d2b3f] transition-colors text-sm">
+            <button className="bg-[#3f3d56] text-white px-4 py-2 rounded hover:bg-[#2d2b3f] transition-colors text-sm" onClick={()=>handleClick(food)}>
               Add to Cart
             </button>
           )}

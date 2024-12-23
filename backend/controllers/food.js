@@ -98,6 +98,7 @@ exports.addFoodItem = async (req, res) => {
 };
 
 exports.updateFoodItem = async (req, res) => {
+  console.log("Updating Food Item")
     const {
         name,
         description,

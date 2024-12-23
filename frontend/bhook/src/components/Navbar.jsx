@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { FaUserCircle, FaShoppingCart } from 'react-icons/fa';
 import bhookLogo from '/logo.svg';
+import { useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 const Navbar = ({ setIsAuthenticated }) => {
+  const cartItems = useSelector((store) => store.cart.items)
+
   const handleProfileClick = () => {
     console.log("Profile clicked");
     localStorage.removeItem("token");
@@ -31,7 +34,7 @@ const Navbar = ({ setIsAuthenticated }) => {
               <FaShoppingCart className="h-6 w-6" />
               {/* Optional: Add cart items count */}
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                0
+                {cartItems.length}
               </span>
             </Link>
             
